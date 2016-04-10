@@ -43,6 +43,12 @@ public class Main {
 
     }
 
+    /**
+     * Точка входа.
+     * Инициализирует окно.
+     *
+     * @param args аргументы командной строки
+     */
     public static void main(String[] args) {
         init(args);
 

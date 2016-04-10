@@ -16,8 +16,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
 
     /**
      * Базовый конструктор.
-     * 
-     * @param drawer
+     *
      */
     CameraController(BoxDrawer drawer) {
         this.drawer = drawer;
@@ -27,7 +26,6 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
     /**
      * Реакция на клик мышкой. Восстанавливает настройки камеры по умолчанию
      *
-     * @param e
      */
     public void mouseClicked(MouseEvent e) {
         drawer.setLookX(0);
@@ -39,8 +37,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
     /**
      * Реакция на зажатие клавиши мышки. Запоминает позицию мышки для того ,что бы в последствии поворачивать камеру на
      * дельту.
-     * 
-     * @param e
+     *
      */
     public void mousePressed(MouseEvent e) {
         oldX = e.getX();
@@ -58,8 +55,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
 
     /**
      * Реакция на движение мышки с зажатой клавишей. Изменяет позицию камеры на дельту движения.
-     * 
-     * @param e
+     *
      */
     public void mouseDragged(MouseEvent e) {
         drawer.addCamX(e.getX() - oldX);
@@ -78,8 +74,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
 
     /**
      * Реакция на нажатия клавиш на клавиатуре. Если были нажаты стрелки изменяет точку , на которую смотрит камера.
-     * 
-     * @param e
+     *
      */
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();

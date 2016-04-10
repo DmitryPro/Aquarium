@@ -25,8 +25,8 @@ public class BoxDrawer implements GLEventListener {
 
     /**
      * @see WaterHeightsBuilder
-     * @param waterHights
-     * @param plainsHighs
+     * @param waterHights массив высот воды
+     * @param plainsHighs массив высот местности
      */
     BoxDrawer(ArrayList<Integer> waterHights, ArrayList<Integer> plainsHighs) {
         this.waterHights = waterHights;
@@ -71,9 +71,7 @@ public class BoxDrawer implements GLEventListener {
 
 
     /**
-     * Процедура инициализации.
-     * 
-     * @param glAutoDrawable
+     * Процедура инициализации
      */
     public void init(GLAutoDrawable glAutoDrawable) {
         final GL2 gl = glAutoDrawable.getGL().getGL2();
@@ -89,7 +87,7 @@ public class BoxDrawer implements GLEventListener {
 
 
     /**
-     * @param glAutoDrawable
+     * Процедура отображения всего на экране
      */
     public void display(GLAutoDrawable glAutoDrawable) {
         final GL2 gl = glAutoDrawable.getGL().getGL2();
@@ -116,13 +114,6 @@ public class BoxDrawer implements GLEventListener {
     }
 
 
-    /**
-     * @param glAutoDrawable
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     */
     public void reshape(GLAutoDrawable glAutoDrawable, int x, int y, int width, int height) {
         final GL2 gl = glAutoDrawable.getGL().getGL2();
 
@@ -140,12 +131,11 @@ public class BoxDrawer implements GLEventListener {
     /**
      *
      * Процедура отрисовки куба. Рисует грани заданного цвета.
-     * 
-     * @param coordinate
+     *
+     * @param coordinate координаты левой нижней точки куба
      * @see Coordinate
-     * @param color
+     * @param color цвет куба
      * @see Color
-     * @param gl2
      *
      *
      */
@@ -202,10 +192,9 @@ public class BoxDrawer implements GLEventListener {
 
     /**
      * На основании координаты рисует грани куба заданого цвета.
-     * 
-     * @param coordinate
-     * @param color
-     * @param gl2
+     *
+     * @param coordinate координаты левой нижней точки куба.
+     * @param color цвет линий.
      */
     private void drawLinesAroundBox(Coordinate coordinate, Color color, GL2 gl2) {
         float x = coordinate.getX();
@@ -255,10 +244,9 @@ public class BoxDrawer implements GLEventListener {
 
     /**
      * По двум координатам строит линию между ними.
-     * 
-     * @param c1
-     * @param c2
-     * @param gl2
+     *
+     * @param c1 точка 1
+     * @param c2 точка 2
      */
     private void drawLine(Coordinate c1, Coordinate c2, GL2 gl2) {
         gl2.glBegin(GL2.GL_LINES);
