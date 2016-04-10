@@ -24,7 +24,7 @@ public class BoxDrawer implements GLEventListener {
     private ArrayList<Integer> plainsHighs;
 
     /**
-     * @see waterHeightsBuilder
+     * @see WaterHeightsBuilder
      * @param waterHights
      * @param plainsHighs
      */

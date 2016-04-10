@@ -35,7 +35,7 @@ public class Main {
         for (String s : args)
             plainHighs.add(Integer.parseInt(s));
         plainHighs.add(0);
-        waterHighs = waterHeightsBuilder.buildHighs(plainHighs);
+        waterHighs = WaterHeightsBuilder.buildHighs(plainHighs);
         capabilities = new GLCapabilities(profile);
         glCanvas = new GLCanvas(capabilities);
         boxDrawer = new BoxDrawer(waterHighs, plainHighs);
