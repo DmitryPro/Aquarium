@@ -7,7 +7,7 @@ import com.jogamp.opengl.glu.gl2.GLUgl2;
 
 
 /**
- * Класс, который выполняет функции отрисовки всего UI.
+ * РљР»Р°СЃСЃ, РєРѕС‚РѕСЂС‹Р№ РІС‹РїРѕР»РЅСЏРµС‚ С„СѓРЅРєС†РёРё РѕС‚СЂРёСЃРѕРІРєРё РІСЃРµРіРѕ UI.
  * 
  * @author Dmitry Prokopenko
  * @see Main
@@ -122,7 +122,7 @@ public class BoxDrawer implements GLEventListener
 
 
     /**
-     * Процедура инициализации.
+     * Init procedure
      * 
      * @param glAutoDrawable
      */
@@ -130,7 +130,7 @@ public class BoxDrawer implements GLEventListener
     {
         final GL2 gl = glAutoDrawable.getGL().getGL2();
         gl.glShadeModel(GL2.GL_SMOOTH);
-        gl.glClearColor(0f, 0f, 0f, 0f); // Цвет фона.
+        gl.glClearColor(0f, 0f, 0f, 0f); // Р¦РІРµС‚ С„РѕРЅР°.
         gl.glClearDepth(1.0f);
         gl.glEnable(GL2.GL_BLEND);
         gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
@@ -152,16 +152,16 @@ public class BoxDrawer implements GLEventListener
                 0 + lookX, camX + lookY, camY, // look at
                 0, 0, 10);// up
 
-        // Прорисовка кубов
+        // Cube drawing
         for (int i = 0; i < plainsHighs.size() - 1; i++)
         {
-            // земля
+            // eath
             for (int j = 0; j < plainsHighs.get(i); j++)
             {
                 drawBox(new Coordinate(0f, 0f + i, 0f + j), Color.GREY, gl);
                 drawLinesAroundBox(new Coordinate(0f, 0f + i, 0f + j), Color.BLACK, gl);
             }
-            // вода
+            // water
             for (int j = plainsHighs.get(i); j < waterHights.get(i); j++)
             {
                 drawBox(new Coordinate(0f, 0f + i, 0f + j), Color.BLUE, gl);
@@ -195,7 +195,7 @@ public class BoxDrawer implements GLEventListener
 
 
     /**
-     * Процедура отрисовки куба. Отрисовывает грани и задает им нужные цвета.
+     * The procedure for drawing a cube. It draws faces and sets them to the desired color.
      * 
      * @param coordinate
      * @see Coordinate
@@ -253,7 +253,7 @@ public class BoxDrawer implements GLEventListener
 
 
     /**
-     * На основании координаты рисует грани куба заданого цвета.
+     * РќР° РѕСЃРЅРѕРІР°РЅРёРё РєРѕРѕСЂРґРёРЅР°С‚С‹ СЂРёСЃСѓРµС‚ РіСЂР°РЅРё РєСѓР±Р° Р·Р°РґР°РЅРѕРіРѕ С†РІРµС‚Р°.
      * 
      * @param coordinate
      * @param color
@@ -297,7 +297,7 @@ public class BoxDrawer implements GLEventListener
 
 
     /**
-     * На основании двух координат строит между ними линию.
+     * РќР° РѕСЃРЅРѕРІР°РЅРёРё РґРІСѓС… РєРѕРѕСЂРґРёРЅР°С‚ СЃС‚СЂРѕРёС‚ РјРµР¶РґСѓ РЅРёРјРё Р»РёРЅРёСЋ.
      * 
      * @param c1
      * @param c2

@@ -8,9 +8,6 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
 
-/**
- * Created by ִלטענטי on 08.04.2016.
- */
 public class Main
 {
 
