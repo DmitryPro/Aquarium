@@ -3,15 +3,15 @@ import java.util.List;
 
 
 /**
- * Класс, описывающий поведение воды
- * 
+ * Класс, реализующий постройку высот воды
+ *
  * @author Dmitry Prokopenko
  */
-public final class waterHeightsBuilder {
+public final class WaterHeightsBuilder {
 
     /**
-     * Метод, реализующий постройку массива высот воды на основании массива высот местности
-     * 
+     * Метод , возвращающий массив высот воды по массиву высот местности
+     *
      * @param plainsHighs
      * @return массив высот воды
      */
