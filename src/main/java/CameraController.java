@@ -2,45 +2,39 @@ import java.awt.event.*;
 
 
 /**
- * Класс, отвечающий за позиционирование камеры. Контроль камеры осуществляется при помощи мышки и клавиатуры.
- * 
+ * Класс, отвечающий за позиционирование камеры.
+ * Контроль камеры осуществляется при помощи мышки и клавиатуры.
+ *
  * @author Dmitry Prokopenko
  * @see BoxDrawer
  */
-public class CameraController implements MouseListener, MouseMotionListener, KeyListener
-{
+public class CameraController implements MouseListener, MouseMotionListener, KeyListener {
 
     private int oldX;
-
     private int oldY;
-
     private BoxDrawer drawer;
-
 
     /**
      * Базовый конструктор.
      * 
      * @param drawer
      */
-    CameraController(BoxDrawer drawer)
-    {
+    CameraController(BoxDrawer drawer) {
         this.drawer = drawer;
     }
 
 
     /**
-     * Реакция на клик мышкой. Возвращает настройки камеры по умолчанию
-     * 
+     * Реакция на клик мышкой. Восстанавливает настройки камеры по умолчанию
+     *
      * @param e
      */
-    public void mouseClicked(MouseEvent e)
-    {
+    public void mouseClicked(MouseEvent e) {
         drawer.setLookX(0);
         drawer.setLookY(0);
         drawer.setCamX(0);
         drawer.setCamY(0);
     }
-
 
     /**
      * Реакция на зажатие клавиши мышки. Запоминает позицию мышки для того ,что бы в последствии поворачивать камеру на
@@ -48,35 +42,26 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
      * 
      * @param e
      */
-    public void mousePressed(MouseEvent e)
-    {
+    public void mousePressed(MouseEvent e) {
         oldX = e.getX();
         oldY = e.getY();
     }
 
-
-    public void mouseReleased(MouseEvent e)
-    {
+    public void mouseReleased(MouseEvent e) {
     }
 
-
-    public void mouseEntered(MouseEvent e)
-    {
+    public void mouseEntered(MouseEvent e) {
     }
 
-
-    public void mouseExited(MouseEvent e)
-    {
+    public void mouseExited(MouseEvent e) {
     }
-
 
     /**
      * Реакция на движение мышки с зажатой клавишей. Изменяет позицию камеры на дельту движения.
      * 
      * @param e
      */
-    public void mouseDragged(MouseEvent e)
-    {
+    public void mouseDragged(MouseEvent e) {
         drawer.addCamX(e.getX() - oldX);
         drawer.addCamY(e.getY() - oldY);
         oldX = e.getX();
@@ -84,26 +69,19 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
     }
 
 
-    public void mouseMoved(MouseEvent e)
-    {
+    public void mouseMoved(MouseEvent e) {
     }
 
-
-    @Override
-    public void keyTyped(KeyEvent e)
-    {
+    public void keyTyped(KeyEvent e) {
 
     }
-
 
     /**
      * Реакция на нажатия клавиш на клавиатуре. Если были нажаты стрелки изменяет точку , на которую смотрит камера.
      * 
      * @param e
      */
-    @Override
-    public void keyPressed(KeyEvent e)
-    {
+    public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         switch (key)
         {
@@ -122,10 +100,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Key
         }
     }
 
-
-    @Override
-    public void keyReleased(KeyEvent e)
-    {
+    public void keyReleased(KeyEvent e) {
 
     }
 

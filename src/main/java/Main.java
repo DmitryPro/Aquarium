@@ -1,44 +1,59 @@
-import java.util.ArrayList;
-
-import javax.swing.*;
-
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
+import javax.swing.*;
+import java.util.ArrayList;
 
-public class Main
-{
 
-    private static BoxDrawer boxDrawer;
+/**
+ * Главный класс в котором находится метод main().
+ * Читает из аргументов высоты земли и строит высоты воды.
+ * Далее происходит инициализация UI и CameraController.
+ *
+ * @author Dmitry Prokopenko
+ */
+public class Main {
 
+    private static final GLProfile profile = GLProfile.get(GLProfile.GL2);
+    private static GLCapabilities capabilities;
+    private static ArrayList<Integer> plainHighs;
+    private static ArrayList<Integer> waterHighs;
     private static GLCanvas glCanvas;
+    private static BoxDrawer boxDrawer;
+    private static CameraController cameraController;
 
 
-    public static void main(String[] args)
-    {
-
-        final GLProfile profile = GLProfile.get(GLProfile.GL2);
-        GLCapabilities capabilities = new GLCapabilities(profile);
-
-        ArrayList<Integer> plainHighs = new ArrayList<Integer>();
+    /**
+     * Инициализация переменных.
+     *
+     * @param args аргументы командной строки
+     */
+    private static void init(String[] args) {
+        plainHighs = new ArrayList<Integer>();
         for (String s : args)
             plainHighs.add(Integer.parseInt(s));
         plainHighs.add(0);
-        ArrayList<Integer> waterHighs = WaterHighsBuilder.buildHighs(plainHighs);
-        waterHighs.forEach((Integer value) -> System.out.print(value + " "));
-        System.out.println();
-        plainHighs.forEach((Integer value) -> System.out.print(value + " "));
-        // The canvas
+        waterHighs = waterHeightsBuilder.buildHighs(plainHighs);
+        capabilities = new GLCapabilities(profile);
         glCanvas = new GLCanvas(capabilities);
         boxDrawer = new BoxDrawer(waterHighs, plainHighs);
-        glCanvas.addGLEventListener(boxDrawer);
+        cameraController = new CameraController(boxDrawer);
+
+    }
+
+    public static void main(String[] args) {
+        init(args);
+
+        // Настройка canvas
         glCanvas.setSize(400, 400);
-        CameraController cameraController = new CameraController(boxDrawer);
+        glCanvas.addGLEventListener(boxDrawer);
         glCanvas.addMouseListener(cameraController);
         glCanvas.addMouseMotionListener(cameraController);
         glCanvas.addKeyListener(cameraController);
+
+        // Настройка JFrame
         final JFrame frame = new JFrame("Dmitry Prokopenko test work");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(glCanvas);

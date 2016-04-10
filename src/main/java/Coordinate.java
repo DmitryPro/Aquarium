@@ -1,39 +1,30 @@
 /**
+ * Класс, описывающий координату.
+ *
  * @author Dmitry Prokopenko
  */
 
-public class Coordinate
-{
+public class Coordinate {
 
     private float x;
-
     private float y;
-
     private float z;
 
-
-    Coordinate(float x, float y, float z)
-    {
+    Coordinate(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-
-    public float getX()
-    {
+    public float getX() {
         return x;
     }
 
-
-    public float getY()
-    {
+    public float getY() {
         return y;
     }
 
-
-    public float getZ()
-    {
+    public float getZ() {
         return z;
     }
 }
